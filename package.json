@@ -1,0 +1,14 @@
+{
+  "name": "ibmcloud-users-permissions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "VSAlmeida",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
