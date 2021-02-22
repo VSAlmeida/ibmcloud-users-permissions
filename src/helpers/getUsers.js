@@ -11,8 +11,8 @@ const getUsers = async (token, accountId, nextUrl) => {
     .then((res) => {
       return res;
     })
-    .catch((err) => {
-      throw new Error(err.response.data.message);
+    .catch((error) => {
+      throw new Error(JSON.stringify(error.response.data.errors));
     });
   const next = response.data.next_url;
   const data = response.data.resources;

@@ -17,7 +17,7 @@ const getAccessGroups = async (token, accountId, userId) => {
       });
     })
     .catch((error) => {
-      throw new Error(error.response.data.message);
+      throw new Error(JSON.stringify(error.response.data.errors));
     });
 };
 

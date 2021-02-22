@@ -10,7 +10,7 @@ const getToken = (apiKey) => {
       return response.data.access_token;
     })
     .catch((error) => {
-      throw new Error(error.response.data.message);
+      throw new Error(error.response.data.errorMessage);
     });
 };
 
