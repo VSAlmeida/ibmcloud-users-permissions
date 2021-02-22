@@ -12,6 +12,16 @@ const iam = rateLimit(
   { maxRequests: 10, perMilliseconds: 1000, maxRPS: 10 }
 );
 
+const classic = rateLimit(
+  axios.default.create({
+    baseURL: "https://api.softlayer.com/rest/v3.1/",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }),
+  { maxRequests: 10, perMilliseconds: 1000, maxRPS: 10 }
+);
+
 const userManagement = rateLimit(
   axios.default.create({
     baseURL: "https://user-management.cloud.ibm.com",
@@ -22,4 +32,4 @@ const userManagement = rateLimit(
   { maxRequests: 10, perMilliseconds: 1000, maxRPS: 10 }
 );
 
-module.exports = { iam, userManagement };
+module.exports = { iam, userManagement, classic };
