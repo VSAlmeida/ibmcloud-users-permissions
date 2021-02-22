@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const iam = axios.default.create({
-  baseURL: "https://iam.cloud.ibm.com/identity",
+  baseURL: "https://iam.cloud.ibm.com",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
     Accept: "application/json",
