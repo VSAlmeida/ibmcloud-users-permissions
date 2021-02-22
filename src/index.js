@@ -1,7 +1,8 @@
 const getToken = require("./helpers/iamToken");
-const getUsers = require("./helpers/getUsers");
-const getAccessGroups = require("./helpers/getAccessGroups");
-const ProgressBar = require("./utils/ProgressBar");
+const ProgressBar = require("./helpers/ProgressBar");
+
+const getUsers = require("./functions/getUsers");
+const getAccessGroups = require("./functions/getAccessGroups");
 
 module.exports = {
   getToken,
