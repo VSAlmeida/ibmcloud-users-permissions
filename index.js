@@ -1,10 +1,11 @@
 require("dotenv").config();
 const {
+  ProgressBar,
   getToken,
   getUsers,
   getAccessGroups,
+  getAccessPolicies,
   getClassicInfraPermissions,
-  ProgressBar,
 } = require("./src");
 const progress = new ProgressBar("Getting Permissions");
 
@@ -27,10 +28,14 @@ const start = async () => {
       process.env.CLASSIC_API_KEY,
       user.email
     );
+    let access_policeis = getAccessPolicies(token, accountId, user.iam_id);
 
     access_groups = await Promise.resolve(access_groups);
+    access_policeis = await Promise.resolve(access_policeis);
     classic_infra = await Promise.resolve(classic_infra);
+
     user.access_groups = access_groups;
+    user.access_policeis = access_policeis;
     user.classic_infra = classic_infra;
 
     currentProgress++;
