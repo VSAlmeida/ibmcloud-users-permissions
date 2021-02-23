@@ -1,5 +1,6 @@
 const { classic } = require("../config/api");
 
+// Funcao responsavel por pegar as permissoes de infra classic
 const getClassicInfraPermissions = async (userName, apiKey, email) => {
   return classic
     .get(
@@ -13,6 +14,8 @@ const getClassicInfraPermissions = async (userName, apiKey, email) => {
     )
     .then((response) => {
       const permissions = response.data[0].actions;
+      // Mapeia as permissoes de infra classic e retonar uma lista com jsons dentro
+      // { name: "string", description: "string" }
       return permissions.map((permission) => {
         return {
           name: permission.name,

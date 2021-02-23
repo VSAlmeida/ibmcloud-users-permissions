@@ -1,6 +1,6 @@
 const { iam } = require("../config/api");
 
-// Gera o Bearer Token
+// Funcao responsavel por gerar o Bearer Token
 const getToken = (apiKey) => {
   return iam
     .post(

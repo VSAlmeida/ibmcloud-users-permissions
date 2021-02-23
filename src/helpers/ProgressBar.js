@@ -1,5 +1,6 @@
 const { bgWhite } = require("chalk");
 
+// Classe responsavel por criar a barra de progresso
 module.exports = class ProgressBar {
   constructor(name) {
     this.total;
@@ -8,18 +9,21 @@ module.exports = class ProgressBar {
     this.bar_length = process.stdout.columns - (name.length + 14);
   }
 
+  // Inicia a barra de progresso
   init(total) {
     this.total = total;
     this.current = 0;
     this.update(this.current);
   }
 
+  // Atualiza a barra de progresso
   update(current) {
     this.current = current;
     const current_progress = this.current / this.total;
     this.draw(current_progress);
   }
 
+  // Desenha a barra de progresso
   draw(current_progress) {
     const filled_bar_length = (current_progress * this.bar_length).toFixed(0);
     const empty_bar_length = this.bar_length - filled_bar_length;

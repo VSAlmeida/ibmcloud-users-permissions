@@ -1,5 +1,6 @@
-// Funcao responsavel por criar o header nas paginas
+// Funcao responsavel por criar o header nos Worksheets
 const wsHeader = (wb, ws) => {
+  // Cria os estios do header
   const style = wb.createStyle({
     fill: {
       type: "pattern",
@@ -12,6 +13,7 @@ const wsHeader = (wb, ws) => {
     },
   });
 
+  // Texto customizado do header
   const text = [
     {
       color: "#FFFFFF",
@@ -26,6 +28,7 @@ const wsHeader = (wb, ws) => {
     " Cloud",
   ];
 
+  // Junta as celulas e escreve o texto do header
   ws.cell(1, 1, 3, 100, true).string(text).style(style);
 };
 

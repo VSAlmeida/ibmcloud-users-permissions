@@ -1,7 +1,7 @@
 const excel = require("excel4node");
 const wb = new excel.Workbook();
 
-// Criacao dos estilos do titulo da tabela
+// Cria os estilos do titulo da tabela
 const titleStyles = wb.createStyle({
   font: {
     color: "#FFFFFF",
@@ -38,7 +38,7 @@ const titleStyles = wb.createStyle({
   },
 });
 
-// Criacao dos estilos do header da tabela
+// Cria os estilos do header da tabela
 const headerStyles = wb.createStyle({
   font: {
     color: "#FFFFFF",
@@ -74,7 +74,7 @@ const headerStyles = wb.createStyle({
   },
 });
 
-// Criacao dos estilos dos linhas da tabela
+// Cria os estilos dos linhas da tabela
 const rowStyles = wb.createStyle({
   font: {
     size: 12,
