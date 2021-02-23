@@ -3,6 +3,7 @@ const {
   getToken,
   getUsers,
   ProgressBar,
+  exportUsers,
   getAccessGroups,
   getAccessPolicies,
   getClassicInfraPermissions,
@@ -21,7 +22,7 @@ const start = async () => {
   console.log(`Were found ${total} users`);
   progress.init(total);
 
-  let permissions = users.map(async (user) => {
+  const permissions = users.map(async (user) => {
     let access_groups = getAccessGroups(token, accountId, user.iam_id);
     let classic_infra = getClassicInfraPermissions(
       process.env.USER_NAME,
@@ -43,8 +44,9 @@ const start = async () => {
     return user;
   });
 
-  permissions = await Promise.all(permissions);
-  console.log(permissions);
+  const userPermissions = await Promise.all(permissions);
+  console.log("Success! All data were obtained successfully");
+  exportUsers(userPermissions);
 };
 
 start();
