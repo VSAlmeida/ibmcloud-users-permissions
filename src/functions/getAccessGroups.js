@@ -1,8 +1,8 @@
 const { iam } = require("../config/api");
 
-const getAccessGroups = async (token, accountId, userId) => {
+const getAccessGroups = async (token, accountId, iamId) => {
   return iam
-    .get(`/v2/groups?account_id=${accountId}&iam_id=${userId}`, {
+    .get(`/v2/groups?account_id=${accountId}&iam_id=${iamId}`, {
       headers: {
         authorization: `Bearer ${token}`,
       },

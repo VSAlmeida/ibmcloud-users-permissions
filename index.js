@@ -1,8 +1,8 @@
 require("dotenv").config();
 const {
-  ProgressBar,
   getToken,
   getUsers,
+  ProgressBar,
   getAccessGroups,
   getAccessPolicies,
   getClassicInfraPermissions,
@@ -22,7 +22,7 @@ const start = async () => {
   progress.init(total);
 
   let permissions = users.map(async (user) => {
-    let access_groups = getAccessGroups(token, accountId, user.user_id);
+    let access_groups = getAccessGroups(token, accountId, user.iam_id);
     let classic_infra = getClassicInfraPermissions(
       process.env.USER_NAME,
       process.env.CLASSIC_API_KEY,
