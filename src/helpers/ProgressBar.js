@@ -5,7 +5,7 @@ module.exports = class ProgressBar {
     this.total;
     this.current;
     this.name = name;
-    this.bar_length = process.stdout.columns - (name.length + 13);
+    this.bar_length = process.stdout.columns - (name.length + 14);
   }
 
   init(total) {
