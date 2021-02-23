@@ -1,4 +1,5 @@
 require("dotenv").config();
+const prompt = require("readline-sync");
 const {
   getToken,
   getUsers,
@@ -10,11 +11,28 @@ const {
 } = require("./src");
 const progress = new ProgressBar("Getting Permissions");
 
-const accountId = process.env.ACCOUNT_ID;
-
 // Funcao principal
 const start = async () => {
-  const token = await getToken(process.env.API_KEY);
+  // Verifica se as keys necessarias ja existem como variaveis de ambiente
+  // Caso nao existam pede que sejam fornecidas pelo usuario
+  const accountId = process.env.ACCOUNT_ID
+    ? process.env.ACCOUNT_ID
+    : prompt.question("Provide your Accound ID: ");
+
+  const userName = process.env.USER_NAME
+    ? process.env.USER_NAME
+    : prompt.question("Provide your User Name: ");
+
+  const apiKey = process.env.API_KEY
+    ? process.env.API_KEY
+    : prompt.question("Provide your API Key: ");
+
+  const classicApiKey = process.env.CLASSIC_API_KEY
+    ? process.env.CLASSIC_API_KEY
+    : prompt.question("Provide your Classic Infra API Key: ");
+
+  // Pega o Bearer Token
+  const token = await getToken(apiKey);
 
   // Pega os usuarios da conta
   console.log("Getting users account");
@@ -33,8 +51,8 @@ const start = async () => {
     // E dispara requisicoes simultaneas
     let access_groups = getAccessGroups(token, accountId, user.iam_id);
     let classic_infra = getClassicInfraPermissions(
-      process.env.USER_NAME,
-      process.env.CLASSIC_API_KEY,
+      userName,
+      classicApiKey,
       user.email
     );
     let access_policeis = getAccessPolicies(token, accountId, user.iam_id);
