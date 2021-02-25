@@ -11,7 +11,9 @@ Simple script to get users and their permissions from an IBM Cloud account
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Getting Account ID](#getting-account-id)
 - [Getting API Username](#getting-api-username)
+- [Getting Classic API Key](#getting-classic-api-key)
 - [Getting API Key](#getting-api-key)
 - [Usage](#usage)
 - [Contributing](#contributing)
